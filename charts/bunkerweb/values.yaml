@@ -52,6 +52,7 @@ service:
   type: LoadBalancer
   externalTrafficPolicy: Local
   annotations: {}
+  externalIPs: []
 
 # BunkerWeb variables
 bunkerweb:

@@ -13,6 +13,10 @@ spec:
   {{- if or (eq .Values.service.type "LoadBalancer") (eq .Values.service.type "NodePort") }}
   externalTrafficPolicy: {{ .Values.service.externalTrafficPolicy }}
   {{- end }}
+  {{- if .Values.service.externalIPs }}
+  externalIPs:
+    {{ toYaml .Values.service.externalIPs | indent 4 }}
+  {{- end }}
   selector:
     bunkerweb.io/component: "bunkerweb"
   ports:
